@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>NewsGuard AI</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #111;
+            color: #eee;
+            text-align: center;
+            padding: 50px;
+        }
+
+        h1 {
+            color: #f1c40f;
+        }
+
+        textarea {
+            width: 60%;
+            height: 150px;
+            padding: 10px;
+            font-size: 16px;
+            margin-top: 20px;
+            border-radius: 5px;
+            border: none;
+        }
+
+        button {
+            margin-top: 20px;
+            padding: 10px 25px;
+            font-size: 16px;
+            background: #f1c40f;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .result {
+            margin-top: 30px;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .real {
+            color: #2ecc71;
+        }
+
+        .fake {
+            color: #e74c3c;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>📰 NewsGuard AI</h1>
+    <p>Fake News Detection System</p>
+
+    <form method="POST">
+        <textarea name="news" placeholder="Enter news text here..." required></textarea><br>
+        <button type="submit">Analyse</button>
+    </form>
+
+    {% if prediction %}
+        <div class="result {% if 'Real' in prediction %}real{% else %}fake{% endif %}">
+            {{ prediction }}
+        </div>
+    {% endif %}
+
+</body>
+</html>
